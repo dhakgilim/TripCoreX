@@ -1,0 +1,58 @@
+{
+  "purpose": "Tell a local Cursor host where TripCoreX / MinnDrive apps live so a TestFlight build can continue.",
+  "updatedAt": "2026-09-21",
+  "thisRepo": {
+    "github": "github.com/dhakgilim/TripCoreX",
+    "role": "marketing_site_only",
+    "stack": "Vue 3 + Vite + TypeScript",
+    "localDev": ["npm ci", "npm run dev"],
+    "containsDriverApp": false,
+    "containsRiderApp": false,
+    "containsAdminApp": false,
+    "containsIosProject": false,
+    "containsExpoProject": false,
+    "containsEasOrTestFlightConfig": false
+  },
+  "claimedProductLayout": {
+    "source": "marketing copy in this repo, not verified source trees",
+    "product": "MinnDrive",
+    "rider": {
+      "expectedStack": "TypeScript / Expo (expo-router)",
+      "expectedRepoGuesses": ["dhakgilim/minndrive", "MinnDrive admin"]
+    },
+    "driver": {
+      "expectedStack": "Kotlin-native wrapper (driverChannel Flow<Location>)",
+      "expectedRepoGuesses": ["dhakgilim/minndrive", "MinnDrive admin"]
+    },
+    "admin": {
+      "expectedStack": "Vue 3 fleet / 1099 dashboards",
+      "expectedRepoGuesses": ["MinnDrive admin", "dhakgilim/fleet-dash"]
+    }
+  },
+  "cloudAgentSearch": {
+    "accessibleGithubRepos": [
+      "dhakgilim/TripCoreX",
+      "dhakgilim/hazeltine",
+      "dhakgilim/claude-code"
+    ],
+    "missingOrInaccessible": [
+      "dhakgilim/minndrive",
+      "dhakgilim/minndrive-admin",
+      "dhakgilim/MinnDrive",
+      "dhakgilim/MinnDrive-admin",
+      "dhakgilim/tripcorex-admin",
+      "dhakgilim/fleet-dash",
+      "dhakgilim/minndrive-driver",
+      "dhakgilim/minndrive-rider"
+    ],
+    "selfHostedWorkersConnected": false,
+    "conclusion": "Driver and rider source is not in this cloud workspace. It is either on the Mac locally, in a private GitHub repo this token cannot see, or only in Expo/EAS / App Store Connect."
+  },
+  "localHostNextSteps": [
+    "Do not open dhakgilim/TripCoreX for the TestFlight IPA. That folder is the tripcorex.com marketing site.",
+    "On the Mac, search for Expo/Xcode projects: app.json, app.config.ts, eas.json, *.xcworkspace, android/, ios/.",
+    "Likely local folder names: MinnDrive, minndrive, MinnDrive-admin, minndrive-admin, rider, driver.",
+    "If the apps are private GitHub repos, open those repos in local Cursor (this cloud token only scopes TripCoreX).",
+    "Continue TestFlight from the Expo Rider and/or Kotlin/iOS Driver project on a Mac with Xcode, not from this site."
+  ]
+}
